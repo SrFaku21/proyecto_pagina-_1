@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/registro.css">
+</head>
+<body>
+    <form action="/login" method="POST" id="loginForm">
+        <div class="form">
+            <h1>Iniciar Sesión</h1>
+            <div class="grupo">
+                <input type="email" name="email" id="email"><span class="barra"></span>
+                <label for="email">Email</label>
+            </div>
+            <div class="grupo">
+                <input type="password" name="password" id="password"><span class="barra"></span>
+                <label for="password">Contraseña</label>
+            </div>
+            <button type="submit">Iniciar Sesión</button>
+            <p class="warnings" id="warnings"></p>
+        </div>
+    </form>
+
+    <script src="js/login.js"></script>
+</body>
+</html>
