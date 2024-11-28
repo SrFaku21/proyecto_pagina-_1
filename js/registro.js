@@ -17,7 +17,7 @@ form.addEventListener("submit", e => {
         entrar = true;
     }
 
-    // // Validar que el nombre tenga más de 6 caracteres
+    // Validar que el nombre tenga más de 6 caracteres
     if (nombre.value.length < 6) {
         warnings += `El nombre debe tener más de 6 caracteres <br>`;
         entrar = true;
@@ -54,9 +54,9 @@ form.addEventListener("submit", e => {
         })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Error al registrar el usuario');
+                return response.text().then(text => { throw new Error(text); }); // Captura el mensaje de error
             }
-            return response.json();
+            return response.json(); // Continuar si la respuesta es correcta
         })
         .then(data => {
             console.log(data); // Manejar la respuesta del servidor si es necesario
@@ -64,7 +64,7 @@ form.addEventListener("submit", e => {
         })
         .catch(error => {
             console.error('Error:', error);
-            parrafo.innerHTML = `Error al registrar: ${error.message}`;
+            parrafo.innerHTML = `Error al registrar: ${error.message}`; // Mostrar el mensaje de error en el HTML
         });
     }
 });
