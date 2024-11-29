@@ -1,10 +1,52 @@
 .greeting {
-    font-weight: bold; /* Hacer el mensaje de bienvenida más destacado */
-    color: #0004ff; /* Color del texto de bienvenida */
-    display: block; /* Hacer que el mensaje de bienvenida ocupe su propia línea */
+  font-weight: bold; /* Hacer el mensaje de bienvenida más destacado */
+  color: #0004ff; /* Color del texto de bienvenida */
+  display: block; /* Hacer que el mensaje de bienvenida ocupe su propia línea */
 }
 
 .username {
-    color: #ffd900; /* Color del texto del nombre del usuario */
-    font-style: italic; /* Estilo del texto del nombre del usuario */
+  color: #ffd900; /* Color del texto del nombre del usuario */
+  font-style: italic; /* Estilo del texto del nombre del usuario */
+}
+
+body {
+  margin: 0; /* Eliminar márgenes por defecto */
+  padding: 0; /* Eliminar padding por defecto */
+  height: 100vh; /* Asegurarse de que el cuerpo ocupe toda la altura de la ventana */
+}
+
+.container {
+  flex-grow: 1; /* Permitir que el contenedor crezca para ocupar el espacio restante */
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  padding: 20px; /* Agregar un poco de espacio alrededor de la cuadrícula */
+  height: calc(
+    100vh - 70px
+  ); /* Ajustar la altura para que ocupe el espacio restante (ajusta según la altura de la barra de navegación) */
+  overflow-y: auto; /* Permitir desplazamiento vertical si hay muchas imágenes */
+}
+
+.image-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+}
+
+.image-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 5px;
 }

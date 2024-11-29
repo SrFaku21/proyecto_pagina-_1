@@ -4,9 +4,13 @@ const path = require('path');
 const db = require('./database');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
+const uploadRoutes = require('./js/subida_archivos'); // Importar rutas de subida
+
+// const app = express();
+// const PORT = 3000; port anterior modificacion pre creacion de script para subida de archivos
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Configura express-session
 app.use(session({
@@ -15,6 +19,12 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: false } // Cambia a true si usas HTTPS
 }));
+
+// Usa el router de upload
+app.use(uploadRoutes); // Agrega las rutas de subida
+
+// Servir la carpeta 'uploads' como recursos estáticos
+app.use('/upload', express.static(path.join(__dirname, 'upload'))); // Asegúrate de que esta línea esté presente
 
 // Middleware para manejar datos codificados en URL y JSON
 app.use(bodyParser.urlencoded({ extended: true }));
