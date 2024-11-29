@@ -1,0 +1,10 @@
+.greeting {
+    font-weight: bold; /* Hacer el mensaje de bienvenida más destacado */
+    color: #0004ff; /* Color del texto de bienvenida */
+    display: block; /* Hacer que el mensaje de bienvenida ocupe su propia línea */
+}
+
+.username {
+    color: #ffd900; /* Color del texto del nombre del usuario */
+    font-style: italic; /* Estilo del texto del nombre del usuario */
+}

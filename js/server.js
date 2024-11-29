@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const db = require('./database');
 const bcrypt = require('bcryptjs');
+const session = require('express-session');
 
 const app = express();
 const PORT = 3000;
@@ -48,6 +49,14 @@ app.post('/login', (req, res) => {
     });
 });
 
+// Ruta para obtener el nombre de usuario
+app.get('/api/username', (req, res) => {
+    if (req.session.username) {
+        res.json({ username: req.session.username }); // Devuelve el nombre de usuario en formato JSON
+    } else {
+        res.json({ username: null }); // Si no hay usuario autenticado, devuelve null
+    }
+});
 
 // Ruta para la página principal
 app.get('/', (req, res) => {
