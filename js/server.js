@@ -4,7 +4,7 @@ const path = require('path');
 const db = require('./database');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
-const uploadRoutes = require('./js/subida_archivos'); // Importar rutas de subida
+const uploadRoutes = require('./subida_archivos'); // Importar rutas de subida
 
 // const app = express();
 // const PORT = 3000; port anterior modificacion pre creacion de script para subida de archivos

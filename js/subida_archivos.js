@@ -6,7 +6,6 @@ const fs = require('fs');
 const router = express.Router();
 
 // Configuración de multer para subir archivos
-const multer = require('multer');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'upload/'); // Asegúrate de que esta carpeta exista
