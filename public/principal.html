@@ -211,7 +211,7 @@
             uploadForm.reset();
 
             // Mostrar la imagen y el texto en la cuadrícula
-            displayImageAndText(data.imageUrl, imageTextInput.value); // Aquí es donde agregas la función
+            displayImageAndText(data.imageUrl, data.imageText);
           })
           .catch((error) => {
             console.error("Error:", error);

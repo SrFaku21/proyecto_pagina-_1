@@ -1,18 +1,25 @@
 .greeting {
   font-weight: bold; /* Hacer el mensaje de bienvenida más destacado */
-  color: #0004ff; /* Color del texto de bienvenida */
+  color: #000000; /* Color del texto de bienvenida */
   display: block; /* Hacer que el mensaje de bienvenida ocupe su propia línea */
 }
 
 .username {
-  color: #ffd900; /* Color del texto del nombre del usuario */
+  color: #0084d1; /* Color del texto del nombre del usuario */
   font-style: italic; /* Estilo del texto del nombre del usuario */
 }
 
 body {
+  background-color: #003366;
   margin: 0; /* Eliminar márgenes por defecto */
   padding: 0; /* Eliminar padding por defecto */
   height: 100vh; /* Asegurarse de que el cuerpo ocupe toda la altura de la ventana */
+}
+
+h1 {
+  color: #D3D3D3;
+  text-align: center;
+  font-weight: 700;
 }
 
 .container {

@@ -27,7 +27,7 @@ router.post('/upload', upload.single('image'), async (req, res) => {
     const imageText = req.body.imageText; // Texto de la imagen
     const imageUrl = `/upload/${req.file.filename}`; // URL de la imagen
 
-    console.log('URL de la imagen generada:', imageUrl); // Agrega esta línea
+    console.log('URL de la imagen generada:', imageUrl);
 
     try {
         // Guardar la imagen y el texto en la base de datos
