@@ -22,31 +22,37 @@ body {
 .image-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
   padding: 20px; /* Agregar un poco de espacio alrededor de la cuadrícula */
-  height: calc(
-    100vh - 70px
-  ); /* Ajustar la altura para que ocupe el espacio restante (ajusta según la altura de la barra de navegación) */
+  height: calc(100vh - 70px); /* Ajustar la altura para que ocupe el espacio restante (ajusta según la altura de la barra de navegación) */
   overflow-y: auto; /* Permitir desplazamiento vertical si hay muchas imágenes */
 }
 
 .image-item {
-  position: relative;
-  overflow: hidden;
+  position: relative; /* Necesario para posicionar el texto sobre la imagen */
+  overflow: hidden; /* Evitar que el contenido se desborde */
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+}
+
+.image-container {
+  position: relative; /* Necesario para el posicionamiento absoluto del texto */
 }
 
 .image-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .image-text {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  text-align: center;
-  padding: 5px;
+  position: absolute; /* Posiciona el texto sobre la imagen */
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta la posición para centrar */
+  background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  color: white; /* Color del texto */
+  text-align: center; /* Centra el texto */
+  padding: 10px; /* Espaciado alrededor del texto */
+  border-radius: 5px; /* Bordes redondeados */
 }

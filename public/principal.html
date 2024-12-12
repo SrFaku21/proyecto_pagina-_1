@@ -136,6 +136,23 @@
     </div>
 
     <script>
+      // Definición de la función para mostrar la imagen y el texto
+      function displayImageAndText(imageUrl, imageText) {
+        const imageGrid = document.getElementById("imageGrid");
+        const imageItem = document.createElement("div");
+        imageItem.className = "image-item"; // Clase para el contenedor de la imagen
+
+        // HTML para la imagen y el texto
+        imageItem.innerHTML = `
+              <img src="${imageUrl}" alt="${imageText}">
+              <div class="image-text">${imageText}</div> <!-- Título sobre la imagen -->
+          `;
+
+        // Agregar el nuevo elemento a la cuadrícula
+        imageGrid.appendChild(imageItem);
+      }
+
+      // Código para manejar la subida de archivos
       const uploadForm = document.getElementById("uploadForm");
       const uploadWarnings = document.getElementById("uploadWarnings");
 
@@ -162,7 +179,6 @@
         const formData = new FormData(uploadForm);
 
         fetch("/upload", {
-          // Asegúrate de que esta URL sea correcta
           method: "POST",
           body: formData,
         })
@@ -177,15 +193,18 @@
           .then((data) => {
             console.log(data); // Manejar la respuesta del servidor
             alert("Archivo subido exitosamente: " + data.imageUrl);
+
             // Cerrar el modal
             const modal = bootstrap.Modal.getInstance(
               document.getElementById("uploadModal")
             );
             modal.hide();
+
             // Limpiar el formulario
             uploadForm.reset();
-            // Aquí puedes agregar una función para mostrar la imagen y el texto en la cuadrícula
-            displayImageAndText(data.imageUrl, imageTextInput.value);
+
+            // Mostrar la imagen y el texto en la cuadrícula
+            displayImageAndText(data.imageUrl, imageTextInput.value); // Aquí es donde agregas la función
           })
           .catch((error) => {
             console.error("Error:", error);

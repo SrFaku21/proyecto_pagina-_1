@@ -17,14 +17,14 @@ app.use(session({
     secret: 'tu_secreto_aqui', // Cambia esto por un secreto real
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } // Cambia a true si usas HTTPS
+    cookie: { secure: false }
 }));
 
 // Usa el router de upload
 app.use(uploadRoutes); // Agrega las rutas de subida
 
 // Servir la carpeta 'uploads' como recursos estáticos
-app.use('/upload', express.static(path.join(__dirname, 'upload'))); // Asegúrate de que esta línea esté presente
+app.use('/upload', express.static(path.join(__dirname, '../upload'))); // Asegúrate de que esta línea esté presente
 
 // Middleware para manejar datos codificados en URL y JSON
 app.use(bodyParser.urlencoded({ extended: true }));
