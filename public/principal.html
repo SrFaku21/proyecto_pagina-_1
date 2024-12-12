@@ -54,10 +54,8 @@
       </div>
     </nav>
 
-    <div class="container mt-4">
-      <div class="image-grid" id="imageGrid">
-        <!-- Aquí se mostrarán las imágenes subidas -->
-      </div>
+    <div class="image-grid" id="imageGrid">
+      <!-- Aquí se mostrarán las imágenes -->
     </div>
 
     <script>
@@ -79,6 +77,9 @@
         .catch((error) => {
           console.error("Error al obtener el nombre de usuario:", error);
         });
+
+      // Llamar a la función cargarPublicaciones
+      cargarPublicaciones();
     </script>
 
     <!-- Modal para subir archivos -->
@@ -140,15 +141,21 @@
       function displayImageAndText(imageUrl, imageText) {
         const imageGrid = document.getElementById("imageGrid");
         const imageItem = document.createElement("div");
-        imageItem.className = "image-item"; // Clase para el contenedor de la imagen
+        imageItem.className = "image-item image-container"; // Agregar la clase image-container
 
-        // HTML para la imagen y el texto
-        imageItem.innerHTML = `
-              <img src="${imageUrl}" alt="${imageText}">
-              <div class="image-text">${imageText}</div> <!-- Título sobre la imagen -->
-          `;
+        // Agregar la imagen
+        const image = document.createElement("img");
+        image.src = imageUrl;
+        image.alt = imageText;
+        imageItem.appendChild(image);
 
-        // Agregar el nuevo elemento a la cuadrícula
+        // Agregar el texto
+        const text = document.createElement("div");
+        text.className = "image-text";
+        text.textContent = imageText;
+        imageItem.appendChild(text);
+
+        // Agregar el elemento a la cuadrícula
         imageGrid.appendChild(imageItem);
       }
 
@@ -212,6 +219,8 @@
           });
       });
     </script>
+
+    <script src="publicaciones.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>

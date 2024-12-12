@@ -5,6 +5,7 @@ const db = require('./database');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const uploadRoutes = require('./subida_archivos'); // Importar rutas de subida
+const publicaciones = require('./publicaciones');
 
 // const app = express();
 // const PORT = 3000; port anterior modificacion pre creacion de script para subida de archivos
@@ -58,6 +59,12 @@ app.post('/login', (req, res) => {
         });
     });
 });
+
+// Ruta para cargar publicaciones
+app.get('/cargar-publicaciones', (req, res) => {
+    publicaciones();
+    res.json({ mensaje: 'Publicaciones cargadas con éxito' });
+    });
 
 // Ruta para obtener el nombre de usuario
 app.get('/api/username', (req, res) => {

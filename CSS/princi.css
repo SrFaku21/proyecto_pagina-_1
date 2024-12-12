@@ -21,7 +21,7 @@ body {
 
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
   grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
   padding: 20px; /* Agregar un poco de espacio alrededor de la cuadrícula */
@@ -34,7 +34,11 @@ body {
   overflow: hidden; /* Evitar que el contenido se desborde */
   grid-column: 1 / -1;
   grid-row: 1 / -1;
+  max-width: 300px;
+  max-width: 300px; /* Ajustar el tamaño máximo de las imágenes */
+  aspect-ratio: 16/9;
 }
+
 
 .image-container {
   position: relative; /* Necesario para el posicionamiento absoluto del texto */
@@ -43,16 +47,17 @@ body {
 .image-item img {
   width: 100%;
   height: 100%;
+  object-fit: cover; /* Ajustar el tamaño de la imagen para que cubra el contenedor */
 }
 
 .image-text {
-  position: absolute; /* Posiciona el texto sobre la imagen */
-  top: 50%; /* Centra verticalmente */
-  left: 50%; /* Centra horizontalmente */
-  transform: translate(-50%, -50%); /* Ajusta la posición para centrar */
-  background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-  color: white; /* Color del texto */
-  text-align: center; /* Centra el texto */
-  padding: 10px; /* Espaciado alrededor del texto */
-  border-radius: 5px; /* Bordes redondeados */
+  position: absolute; /* Posicionar el texto en la parte superior de la imagen */
+  top: 10px; /* Agregar un poco de espacio entre el texto y la imagen */
+  left: 0; /* Posicionar el texto en la parte izquierda de la imagen */
+  transform: translate(0, 0); /* No mover el texto */
+  background: rgba(0, 0, 0, 0.5); /* Agregar un fondo semi-transparente al texto */
+  color: white; /* Establecer el color del texto en blanco */
+  text-align: center; /* Centrar el texto horizontalmente */
+  padding: 10px; /* Agregar un poco de espacio alrededor del texto */
+  border-radius: 5px; /* Agregar un borde redondeado al texto */
 }
